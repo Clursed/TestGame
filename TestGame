@@ -1,0 +1,31 @@
+#___________________Spend___________________
+def spend():
+    money = 100
+    how_much = int(input("How much would you like to spend?  "))
+    if how_much > money:
+         print("You dont have enough money. Make money to spend money")
+         ans = input("would you like to make money?   ")
+         if ans == "yes":
+             make()
+         else:
+             print("Cya!")
+    elif how_much > 0:
+        money -= how_much
+        print("You spent",how_much,"you now have",money,)
+        make_or_spend = input("Would you like to spend more or make some more? (Make/Spend)")
+        if make_or_spend == "make":
+            make()
+        elif make_or_spend == "spend":
+            spend()
+#________________Prompt___________________
+def prompt():
+    ans = input("Would you like to spend your money or make money(Make/Spend)   ").lower()
+    if ans == "make":
+        make()
+    elif ans == "spend":
+        spend()
+    else:
+        print("Error...Invalid input please try again")
+        print("__________________________________")
+        prompt()
+prompt()
